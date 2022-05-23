@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Recipe {
+struct Recipe: Identifiable {
+    var id = UUID()
     var mainInformation: MainInformation
     var ingredients: [Ingredient]
     var directions: [Direction]
@@ -19,7 +20,15 @@ struct Recipe {
     }
     
     init() {
-        self.init(mainInformation: MainInformation(name: "", description: "", author: "", category: .breakfast), ingredients: [], directions: [])
+        self.init(mainInformation: MainInformation(
+            name: "",
+            description: "",
+            author: "",
+            category: .breakfast
+        ),
+        ingredients: [],
+        directions: []
+        )
     }
 }
 
